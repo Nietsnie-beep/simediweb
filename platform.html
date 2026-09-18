@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMEDI | Plataforma privada</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/plugin.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="icons/font-awesome.min.css">
+</head>
+<body class="platform-page">
+
+<div class="platform-drawer-overlay" id="platform-drawer-overlay"></div>
+<aside class="platform-sidebar">
+  <button class="platform-drawer-close" id="platform-drawer-close" aria-label="Cerrar menu"><i class="fa fa-times" aria-hidden="true"></i></button>
+  <a href="index.html" class="simedi-logo"><img src="images/logo/logob.png" alt="SIMEDI"></a>
+  <nav class="platform-nav" aria-label="Navegacion de plataforma">
+    <button class="active" data-view="home"><i class="fa fa-home" aria-hidden="true"></i> Inicio</button>
+    <button data-view="courses"><i class="fa fa-book" aria-hidden="true"></i> Cursos</button>
+    <button data-view="procedures"><i class="fa fa-briefcase" aria-hidden="true"></i> Procedimientos</button>
+    <button data-view="assistant"><i class="fa fa-comments-o" aria-hidden="true"></i> Asistente IA</button>
+    <button data-view="profile"><i class="fa fa-user-o" aria-hidden="true"></i> Perfil</button>
+  </nav>
+  <a class="platform-logout" href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesion</a>
+</aside>
+
+<main class="platform-main">
+  <header class="platform-topbar">
+    <button class="platform-menu-toggle" id="platform-menu-toggle" aria-label="Abrir menu"><i class="fa fa-bars" aria-hidden="true"></i></button>
+    <div>
+      <p class="platform-kicker mb-1" id="role-kicker">Portal ciudadano</p>
+      <h1 id="welcome-title">Bienvenida, Ana Maria</h1>
+    </div>
+    <div class="platform-role-badge" id="role-badge">Ciudadano</div>
+  </header>
+
+  <section class="platform-view active" id="view-home">
+    <div class="platform-mobile-brand">
+      <img src="images/logo/logob.png" alt="SIMEDI">
+    </div>
+    <div class="platform-grid">
+      <article class="platform-hero-card">
+        <h2 id="home-title">Tu mediacion familiar continua en proceso</h2>
+        <p id="home-copy">Revisa documentos pendientes, confirma tu proxima videollamada y da seguimiento al expediente EXP-2024-00125.</p>
+        <div class="platform-actions">
+          <button data-view-target="procedures"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Ver expediente</button>
+          <button data-view-target="assistant"><i class="fa fa-comments-o" aria-hidden="true"></i> Abrir asistente</button>
+        </div>
+      </article>
+      <article class="platform-card">
+        <h3>Proxima sesion</h3>
+        <div class="session-time"><span>Hoy</span><strong>10:00 a.m.</strong></div>
+        <p id="session-copy">Videomediacion con mediador certificado. Ten a la mano identificacion y documentos anexos.</p>
+        <a class="btn w-100" href="#">Entrar a videollamada</a>
+      </article>
+    </div>
+
+    <div class="platform-stats app-summary-grid">
+      <article><i class="fa fa-folder-open-o" aria-hidden="true"></i><strong id="stat-a">3</strong><span>Expedientes activos</span></article>
+      <article><i class="fa fa-bell-o" aria-hidden="true"></i><strong id="stat-b">5</strong><span>Notificaciones</span></article>
+      <article><i class="fa fa-pencil-square-o" aria-hidden="true"></i><strong id="stat-c">1</strong><span>Firma pendiente</span></article>
+      <article><i class="fa fa-check-circle-o" aria-hidden="true"></i><strong id="stat-d">2</strong><span>Convenios cerrados</span></article>
+    </div>
+
+    <section class="platform-section">
+      <div class="section-heading">
+        <h2>Accesos rapidos</h2>
+        <span>Funciones principales de la plataforma</span>
+      </div>
+      <div class="quick-grid-app" id="quick-grid-app"></div>
+    </section>
+
+    <section class="platform-section">
+      <div class="section-heading">
+        <h2>Actividad reciente</h2>
+        <span id="activity-context">Movimientos de tus expedientes</span>
+      </div>
+      <div class="activity-list" id="activity-list"></div>
+    </section>
+  </section>
+
+  <section class="platform-view" id="view-courses">
+    <div class="section-heading">
+      <h2 id="courses-title">Cursos y orientacion</h2>
+      <span>Material de apoyo para entender el proceso de mediacion.</span>
+    </div>
+    <div class="course-grid" id="course-grid"></div>
+  </section>
+
+  <section class="platform-view" id="view-procedures">
+    <div class="section-heading">
+      <h2 id="procedures-title">Procedimientos</h2>
+      <span id="procedures-subtitle">Consulta el estado de tus solicitudes e invitaciones.</span>
+    </div>
+    <div class="procedure-list" id="procedure-list"></div>
+  </section>
+
+  <section class="platform-view" id="view-assistant">
+    <div class="assistant-layout assistant-layout-chat">
+      <article class="platform-card chat-panel">
+        <div class="assistant-header-card">
+          <div class="assistant-orb"><i class="fa fa-comments-o" aria-hidden="true"></i></div>
+          <div>
+            <p class="platform-kicker mb-1">Asistente inteligente</p>
+            <h2>Chat SIMEDI</h2>
+            <p id="assistant-subtitle">Orientacion inicial por chat para preparar documentos, resolver dudas y entender los pasos de tu procedimiento.</p>
+          </div>
+          <span class="assistant-live"><i class="fa fa-circle" aria-hidden="true"></i> En linea</span>
+        </div>
+        <div class="assistant-suggestions">
+          <button type="button" data-chat-prompt="Que documentos necesito cargar para mi expediente?">Documentos</button>
+          <button type="button" data-chat-prompt="Como consulto el estado de mi procedimiento?">Estado del expediente</button>
+          <button type="button" data-chat-prompt="Que necesito para entrar a mi audiencia virtual?">Audiencia virtual</button>
+          <button type="button" data-chat-prompt="Como funciona la firma electronica del convenio?">Firma electronica</button>
+        </div>
+        <div class="chat-box" id="chat-box" aria-live="polite">
+          <div class="chat-message bot">Hola, soy el asistente SIMEDI. Puedo orientarte sobre tu audiencia, documentos, pagos o expediente.</div>
+        </div>
+        <form class="chat-input" id="chat-form">
+          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+          <input id="chat-draft" type="text" placeholder="Escribe tu pregunta al asistente" autocomplete="off">
+          <button class="btn" id="chat-send" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+        <p class="chat-status" id="chat-status">Sesion segura activa.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="platform-view" id="view-profile">
+    <div class="profile-layout">
+      <article class="platform-card profile-card">
+        <div class="profile-avatar" id="profile-initials">AM</div>
+        <h2 id="profile-name">Ana Maria Lopez</h2>
+        <p id="profile-email">ana.maria@correo.com</p>
+        <span id="profile-code">USR-2024-0081</span>
+      </article>
+      <article class="platform-card">
+        <h3>Informacion de cuenta</h3>
+        <div class="profile-details" id="profile-details"></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script>
+  var state = {
+    role: new URLSearchParams(window.location.search).get('role') === 'mediator' ? 'mediator' : 'user'
+  };
+  var chatEndpoint = 'http://72.60.170.75:18791/chat';
+  var chatSessionKey = 'simedi_chat_session_id';
+  var chatMessages = [];
+  var isTyping = false;
+
+  var data = {
+    user: {
+      kicker: 'Portal ciudadano',
+      welcome: 'Bienvenida, Ana Maria',
+      homeTitle: 'Tu mediacion familiar continua en proceso',
+      homeCopy: 'Revisa documentos pendientes, confirma tu proxima videollamada y da seguimiento al expediente EXP-2024-00125.',
+      session: 'Videomediacion con mediador certificado. Ten a la mano identificacion y documentos anexos.',
+      stats: ['3', '5', '1', '2'],
+      statLabels: ['Expedientes activos', 'Notificaciones', 'Firma pendiente', 'Convenios cerrados'],
+      actions: [
+        ['file-text-o', 'Expediente', 'soft-blue', 'profile'],
+        ['users', 'Mis procedimientos', 'soft-purple', 'procedures'],
+        ['video-camera', 'Audiencia virtual', 'soft-green', 'procedures'],
+        ['credit-card', 'Pagos', 'soft-orange', 'profile'],
+        ['calendar', 'Calendario', 'soft-blue', 'profile'],
+        ['folder-open-o', 'Documentos', 'soft-cyan', 'profile']
+      ],
+      profile: ['AM', 'Ana Maria Lopez', 'ana.maria@correo.com', 'USR-2024-0081'],
+      details: [['CURP', 'Validada'], ['Telefono', 'Verificado'], ['Identidad', 'Biometria pendiente'], ['Rol', 'Ciudadano solicitante']],
+      activities: [
+        ['check', 'Documento agregado', 'Identificacion oficial anexada al expediente', 'Hoy'],
+        ['calendar', 'Audiencia agendada', 'Sesion virtual programada a las 10:00 a.m.', 'Ayer'],
+        ['bell-o', 'Notificacion recibida', 'La contraparte acepto participar', '24 Jun'],
+        ['pencil-square-o', 'Firma pendiente', 'Convenio preliminar listo para revision', '22 Jun']
+      ],
+      coursesTitle: 'Cursos y orientacion',
+      courses: [
+        ['Mediacion Familiar', 'Conceptos basicos y participacion voluntaria', '60%'],
+        ['Como preparar mi sesion', 'Documentos, camara, microfono y recomendaciones', '80%'],
+        ['Firma electronica', 'Validez y pasos para formalizar acuerdos', '35%']
+      ],
+      proceduresTitle: 'Mis procedimientos',
+      proceduresSubtitle: 'Consulta el estado de tus solicitudes e invitaciones.',
+      procedures: [
+        ['Mediacion Familiar', 'EXP-2024-00125', 'En proceso', 'Proxima sesion hoy 10:00 a.m.'],
+        ['Conflicto Vecinal', 'EXP-2024-00098', 'Invitacion recibida', 'Pendiente de confirmar participacion'],
+        ['Civil Mercantil', 'EXP-2024-00076', 'En espera de acuerdo', 'Documento preliminar disponible']
+      ]
+    },
+    mediator: {
+      kicker: 'Portal de mediadores',
+      welcome: 'Bienvenido, Lic. Carlos',
+      homeTitle: 'Tienes solicitudes asignadas para revision',
+      homeCopy: 'Gestiona expedientes, valida documentos, agenda sesiones y registra acuerdos desde el centro de control SIMEDI.',
+      session: 'Sesion civil mercantil asignada. Revisa documentos y confirma sala virtual antes de iniciar.',
+      stats: ['8', '4', '6', '12'],
+      statLabels: ['Casos asignados', 'Revisiones pendientes', 'Sesiones de hoy', 'Acuerdos del mes'],
+      actions: [
+        ['briefcase', 'Casos asignados', 'soft-purple', 'procedures'],
+        ['video-camera', 'Audiencia virtual', 'soft-green', 'procedures'],
+        ['bar-chart', 'Reportes', 'soft-blue', 'profile'],
+        ['calendar', 'Agenda', 'soft-blue', 'profile'],
+        ['book', 'Capacitacion', 'soft-cyan', 'courses'],
+        ['user-secret', 'Expediente', 'soft-orange', 'profile']
+      ],
+      profile: ['CM', 'Lic. Carlos Mendoza Reyes', 'carlos.mendoza@simedi.mx', 'MC-2023-000145'],
+      details: [['Certificacion', 'Mediador vigente'], ['Materia', 'Familiar, civil y mercantil'], ['Centro', 'Centro de Justicia Alternativa'], ['Rol', 'Mediador certificado']],
+      activities: [
+        ['check', 'Acuerdo registrado', 'Caso EXP-2024-00125 actualizado', 'Hoy'],
+        ['briefcase', 'Nueva solicitud asignada', 'Revision de admisibilidad pendiente', '15 min'],
+        ['institution', 'Consulta institucional', 'Registro Civil respondio validacion', 'Hoy'],
+        ['video-camera', 'Audiencia programada', 'Civil Mercantil - 12:30 p.m.', 'Ayer']
+      ],
+      coursesTitle: 'Capacitacion de mediadores',
+      courses: [
+        ['Marco legal de la mediacion', 'Actualizacion normativa y alcances juridicos', '90%'],
+        ['Tecnicas de negociacion', 'Herramientas para acuerdos colaborativos', '70%'],
+        ['Gestion de audiencias virtuales', 'Buenas practicas y seguridad digital', '45%']
+      ],
+      proceduresTitle: 'Casos asignados',
+      proceduresSubtitle: 'Gestiona solicitudes, audiencias, documentos y convenios.',
+      procedures: [
+        ['Mediacion Familiar', 'EXP-2024-00125', 'En proceso', 'Documento agregado por la parte solicitante'],
+        ['Civil Mercantil', 'EXP-2024-00076', 'Revision pendiente', 'Validar admisibilidad y documentos'],
+        ['Conflicto Vecinal', 'EXP-2024-00098', 'Audiencia programada', 'Sala virtual lista para iniciar']
+      ]
+    }
+  };
+
+  function icon(name) {
+    return '<i class="fa fa-' + name + '" aria-hidden="true"></i>';
+  }
+
+  function createUuid() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(char) {
+      var value = Math.random() * 16 | 0;
+      var result = char === 'x' ? value : (value & 0x3 | 0x8);
+      return result.toString(16);
+    });
+  }
+
+  function getChatSessionId() {
+    var stored = localStorage.getItem(chatSessionKey);
+    if (stored) return stored;
+    var sessionId = createUuid();
+    localStorage.setItem(chatSessionKey, sessionId);
+    return sessionId;
+  }
+
+  function readBotReply(payload) {
+    if (typeof payload === 'string') return payload;
+    if (payload && typeof payload === 'object') {
+      return payload.reply || payload.response || payload.message || payload.answer || payload.text || 'Recibi respuesta del servidor, pero no pude leer el mensaje del bot.';
+    }
+    return 'Recibi respuesta del servidor, pero no pude leer el mensaje del bot.';
+  }
+
+  function escapeHtml(value) {
+    return value.replace(/[&<>"']/g, function(char) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[char];
+    });
+  }
+
+  function initialBotMessage() {
+    return state.role === 'mediator'
+      ? 'Hola, puedo ayudarte a revisar pendientes del expediente, pagos, sesiones o plazos.'
+      : 'Hola, soy el asistente SIMEDI. Puedo orientarte sobre tu audiencia, documentos, pagos o expediente.';
+  }
+
+  function resetChatForRole() {
+    chatMessages = [{ from: 'bot', text: initialBotMessage(), time: 'Ahora' }];
+    renderChat();
+  }
+
+  function renderChat() {
+    var chatBox = document.getElementById('chat-box');
+    chatBox.innerHTML = chatMessages.map(function(message) {
+      return '<div class="chat-message ' + message.from + '"><span>' + escapeHtml(message.text) + '</span><small>' + escapeHtml(message.time) + '</small></div>';
+    }).join('') + (isTyping ? '<div class="chat-message bot chat-typing"><span>SIMEDI esta escribiendo...</span><small>Bot</small></div>' : '');
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  async function requestBotReply(message) {
+    var response = await fetch(chatEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ session_id: getChatSessionId(), message: message })
+    });
+    var responseText = await response.text();
+    if (!response.ok) {
+      throw new Error(responseText || 'HTTP ' + response.status);
+    }
+    try {
+      return readBotReply(JSON.parse(responseText));
+    } catch (error) {
+      return readBotReply(responseText);
+    }
+  }
+
+  async function sendChatMessage(message) {
+    if (!message || isTyping) return;
+    chatMessages.push({ from: 'user', text: message, time: 'Tu' });
+    isTyping = true;
+    renderChat();
+    document.getElementById('chat-status').textContent = 'Conectando con el asistente SIMEDI...';
+    document.getElementById('chat-send').disabled = true;
+    try {
+      var reply = await requestBotReply(message);
+      chatMessages.push({ from: 'bot', text: reply, time: 'Bot' });
+      document.getElementById('chat-status').textContent = 'Sesion segura activa.';
+    } catch (error) {
+      chatMessages.push({ from: 'bot', text: 'No pude conectar con el asistente en este momento. Intenta de nuevo en unos segundos.', time: 'Bot' });
+      document.getElementById('chat-status').textContent = 'Sin conexion temporal con el asistente.';
+    } finally {
+      isTyping = false;
+      document.getElementById('chat-send').disabled = false;
+      renderChat();
+    }
+  }
+
+  function render() {
+    var current = data[state.role];
+    document.getElementById('role-kicker').textContent = current.kicker;
+    document.getElementById('welcome-title').textContent = current.welcome;
+    document.getElementById('home-title').textContent = current.homeTitle;
+    document.getElementById('home-copy').textContent = current.homeCopy;
+    document.getElementById('session-copy').textContent = current.session;
+    ['a','b','c','d'].forEach(function(key, index) {
+      document.getElementById('stat-' + key).textContent = current.stats[index];
+      document.querySelectorAll('.platform-stats article span')[index].textContent = current.statLabels[index];
+    });
+    document.getElementById('activity-list').innerHTML = current.activities.map(function(item) {
+      return '<article>' + icon(item[0]) + '<div><strong>' + item[1] + '</strong><p>' + item[2] + '</p></div><span>' + item[3] + '</span></article>';
+    }).join('');
+    document.getElementById('quick-grid-app').innerHTML = current.actions.map(function(item) {
+      return '<button class="quick-tile-app ' + item[2] + '" data-view-target="' + item[3] + '">' + icon(item[0]) + '<span>' + item[1] + '</span></button>';
+    }).join('');
+    bindViewTargetButtons();
+    document.getElementById('courses-title').textContent = current.coursesTitle;
+    document.getElementById('course-grid').innerHTML = current.courses.map(function(item) {
+      return '<article class="platform-card course-card"><h3>' + item[0] + '</h3><p>' + item[1] + '</p><div class="progress-track"><span style="width:' + item[2] + '"></span></div><small>Avance ' + item[2] + '</small></article>';
+    }).join('');
+    document.getElementById('procedures-title').textContent = current.proceduresTitle;
+    document.getElementById('procedures-subtitle').textContent = current.proceduresSubtitle;
+    document.getElementById('procedure-list').innerHTML = current.procedures.map(function(item) {
+      return '<article class="platform-card procedure-card"><div><h3>' + item[0] + '</h3><p>' + item[1] + ' | ' + item[3] + '</p></div><span>' + item[2] + '</span><button class="btn">Abrir</button></article>';
+    }).join('');
+    document.getElementById('profile-initials').textContent = current.profile[0];
+    document.getElementById('profile-name').textContent = current.profile[1];
+    document.getElementById('profile-email').textContent = current.profile[2];
+    document.getElementById('profile-code').textContent = current.profile[3];
+    document.getElementById('profile-details').innerHTML = current.details.map(function(item) {
+      return '<div><span>' + item[0] + '</span><strong>' + item[1] + '</strong></div>';
+    }).join('');
+    document.getElementById('assistant-subtitle').textContent = state.role === 'mediator'
+      ? 'Consulta pendientes, plazos, pagos, sesiones y acciones del expediente asignado.'
+      : 'Orientacion por chat para audiencia, documentos, pagos o seguimiento de expediente.';
+    document.getElementById('role-badge').textContent = state.role === 'mediator' ? 'Mediador' : 'Ciudadano';
+  }
+
+  document.querySelectorAll('.platform-nav button').forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.querySelectorAll('.platform-nav button').forEach(function(item) { item.classList.remove('active'); });
+      document.querySelectorAll('.platform-view').forEach(function(view) { view.classList.remove('active'); });
+      button.classList.add('active');
+      document.getElementById('view-' + button.dataset.view).classList.add('active');
+      closePlatformDrawer();
+    });
+  });
+
+  function bindViewTargetButtons() {
+    document.querySelectorAll('[data-view-target]').forEach(function(button) {
+      if (button.dataset.bound === 'true') return;
+      button.dataset.bound = 'true';
+      button.addEventListener('click', function() {
+        document.querySelector('.platform-nav button[data-view="' + button.dataset.viewTarget + '"]').click();
+      });
+    });
+  }
+
+  render();
+  resetChatForRole();
+
+  function openPlatformDrawer() {
+    document.body.classList.add('platform-drawer-open');
+  }
+
+  function closePlatformDrawer() {
+    document.body.classList.remove('platform-drawer-open');
+  }
+
+  document.getElementById('platform-menu-toggle').addEventListener('click', openPlatformDrawer);
+  document.getElementById('platform-drawer-close').addEventListener('click', closePlatformDrawer);
+  document.getElementById('platform-drawer-overlay').addEventListener('click', closePlatformDrawer);
+
+  document.getElementById('chat-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var input = document.getElementById('chat-draft');
+    var message = input.value.trim();
+    if (!message) return;
+    input.value = '';
+    sendChatMessage(message);
+  });
+
+  document.querySelectorAll('[data-chat-prompt]').forEach(function(button) {
+    button.addEventListener('click', function() {
+      sendChatMessage(button.dataset.chatPrompt);
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMEDI | Acceso a plataforma</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/plugin.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="icons/font-awesome.min.css">
+</head>
+<body class="login-page">
+
+<header class="border-bottom border-1 border-lightgrey position-relative z-2">
+  <div class="header-nav-menu" id="header-nav-menu">
+    <div class="container">
+      <div class="header-nav-menu-inner py-2">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-lg-3 col-md-5 col-6">
+            <div class="navbar-logo m-0">
+              <a href="index.html" class="simedi-logo"><img src="images/logo/logob.png" alt="SIMEDI"></a>
+            </div>
+          </div>
+          <div class="col-lg-6 d-none d-lg-block">
+            <ul class="navbar-nav align-items-center justify-content-center flex-row">
+              <li class="nav-item"><a class="nav-link px-3 py-0 blue roboto fw-semibold" href="index.html">Portal publico</a></li>
+              <li class="nav-item"><a class="nav-link px-3 py-0 blue roboto fw-semibold" href="index.html#servicios">Servicios</a></li>
+              <li class="nav-item"><a class="nav-link px-3 py-0 blue roboto fw-semibold" href="index.html#contacto">Soporte</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-7 col-6">
+            <div class="navbar-button text-end">
+              <a class="btn btn2" href="index.html">Volver al portal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="login-main">
+  <section class="login-hero">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <div class="login-copy white">
+            <h6 class="orange mb-3">Plataforma privada de mediacion digital</h6>
+            <h1 class="white mb-4">Accede a tu expediente SIMEDI</h1>
+            <p class="mb-5">Inicia sesion para solicitar mediacion, consultar invitaciones, cargar documentos, asistir a sesiones virtuales y firmar convenios digitales.</p>
+            <div class="login-benefits">
+              <span><i class="fa fa-lock" aria-hidden="true"></i> Acceso seguro</span>
+              <span><i class="fa fa-folder-open-o" aria-hidden="true"></i> Expediente digital</span>
+              <span><i class="fa fa-video-camera" aria-hidden="true"></i> Videomediacion</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="login-card">
+            <div class="login-card-header">
+              <h2>Iniciar sesion</h2>
+              <p>Ingresa con tu correo y contrasena para continuar con tu solicitud.</p>
+            </div>
+            <form id="simedi-login-form">
+              <div class="role-switch mb-4" aria-label="Selecciona tipo de acceso">
+                <label>
+                  <input type="radio" name="role" value="user" checked>
+                  <span><i class="fa fa-user-o" aria-hidden="true"></i> Ciudadano</span>
+                </label>
+                <label>
+                  <input type="radio" name="role" value="mediator">
+                  <span><i class="fa fa-balance-scale" aria-hidden="true"></i> Mediador</span>
+                </label>
+              </div>
+
+              <label for="email">Correo electronico</label>
+              <input id="email" type="email" placeholder="nombre@correo.com" required>
+
+              <label for="password">Contrasena</label>
+              <input id="password" type="password" placeholder="Ingresa tu contrasena" required>
+
+              <div class="login-options">
+                <label class="login-check"><input type="checkbox"> Recordarme</label>
+                <a href="#">Olvide mi contrasena</a>
+              </div>
+
+              <button class="btn w-100" type="submit">Entrar a plataforma</button>
+            </form>
+            <div class="login-divider"><span>o</span></div>
+            <a href="#" class="btn btn-login-outline w-100"><i class="fa fa-user-plus me-2" aria-hidden="true"></i> Crear cuenta ciudadana</a>
+            <p class="login-help mb-0">Tambien pueden acceder mediadores, personal del Poder Judicial, administradores y soporte autorizado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/plugin.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('simedi-login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var role = document.querySelector('input[name="role"]:checked').value;
+    window.location.href = 'platform.html?role=' + role;
+  });
+</script>
+</body>
+</html>
