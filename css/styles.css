@@ -4,6 +4,7 @@ body{
   background-color: #fff;
 }
 
+
 header,
 .header-nav-menu{
   background-color: #fff;
@@ -2255,5 +2256,947 @@ footer a:hover{
   .slicknav_btn.slicknav_open,
   .slicknav_btn.slicknav_collapsed{
     background: transparent !important;
+  }
+}
+
+/* SIMEDI compact platform refinements - final cascade */
+.platform-page{
+  grid-template-columns: 238px 1fr;
+  font-size: 14px;
+}
+
+.platform-sidebar{
+  padding: 24px 18px;
+  gap: 22px;
+}
+
+.platform-nav button,
+.platform-logout{
+  padding: 11px 13px;
+  border-radius: 8px;
+}
+
+.platform-main{
+  padding: 24px;
+}
+
+.platform-main:before,
+.platform-hero-card:after{
+  display: none;
+}
+
+.platform-topbar{
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.platform-topbar h1{
+  font-size: 28px;
+}
+
+.platform-role-badge{
+  min-height: 36px;
+  padding: 8px 14px;
+}
+
+.platform-hero-card,
+.platform-card,
+.platform-stats article,
+.quick-tile-app,
+.activity-list article,
+.assistant-header-card,
+.chat-box,
+.chat-message,
+.chat-input{
+  border-radius: 8px;
+}
+
+.platform-hero-card{
+  min-height: 180px;
+  padding: 24px;
+}
+
+.platform-hero-card h2{
+  font-size: 26px;
+}
+
+.platform-actions button{
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.platform-card{
+  padding: 18px;
+}
+
+.session-time strong,
+.platform-stats strong{
+  font-size: 26px;
+}
+
+.platform-stats article{
+  padding: 15px;
+}
+
+.quick-tile-app{
+  min-height: 94px;
+  padding: 13px 10px;
+}
+
+.quick-tile-app i{
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  font-size: 19px;
+}
+
+.section-heading{
+  margin: 22px 0 12px;
+}
+
+.activity-list i{
+  border-radius: 8px;
+}
+
+.assistant-orb{
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  font-size: 23px;
+}
+
+.chat-box{
+  height: min(48vh, 440px);
+  min-height: 300px;
+}
+
+.chat-input .btn{
+  border-radius: 8px;
+}
+
+.chat-panel{
+  min-height: 610px;
+  padding: 22px;
+}
+
+.profile-avatar{
+  width: 72px;
+  height: 72px;
+  font-size: 24px;
+}
+
+.calendar-layout,
+.payments-layout{
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 18px;
+}
+
+.calendar-head,
+.calendar-weekdays,
+.calendar-grid{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-head{
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.calendar-head h3{
+  margin: 0;
+  text-align: center;
+  text-transform: none;
+}
+
+.calendar-head button,
+.calendar-day{
+  border: 1px solid #dbe7f1;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.calendar-head button{
+  height: 38px;
+  color: #002352;
+}
+
+.calendar-weekdays{
+  color: #65708a;
+  margin-bottom: 8px;
+  text-align: center;
+  font-family: "RobotoBold", serif;
+  font-size: 13px;
+}
+
+.calendar-day{
+  min-height: 62px;
+  color: #002352;
+  text-align: left;
+  padding: 8px;
+}
+
+.calendar-day.has-event{
+  border-color: #00A4D6;
+  background: #e8fbff;
+}
+
+.event-list,
+.payment-list{
+  display: grid;
+  gap: 12px;
+}
+
+.event-item{
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #e5ebf4;
+  border-radius: 8px;
+  color: #002352;
+  background: #fff;
+  text-decoration: none;
+}
+
+.event-item p{
+  margin: 0;
+  color: #65708a;
+}
+
+.payment-summary{
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.inline-status{
+  color: #65708a;
+  padding: 10px 12px;
+  border: 1px solid #dbe7f1;
+  border-radius: 8px;
+  background: #f7f9fd;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.inline-status.is-active{
+  color: #002352;
+  border-color: #00A4D6;
+  background: #e8fbff;
+}
+
+.payment-summary strong{
+  color: #002352;
+  font-size: 34px;
+}
+
+.payment-row{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.payment-row h3{
+  margin-bottom: 4px;
+  text-transform: none;
+}
+
+.payment-row p{
+  margin: 0;
+}
+
+.payment-row span{
+  color: #002352;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #e8fbff;
+  font-family: "RobotoBold", serif;
+}
+
+.document-grid,
+.report-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.document-card{
+  display: grid;
+  grid-template-columns: 42px 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.document-card > i,
+.report-card > i{
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #00A4D6;
+  background: #e8fbff;
+}
+
+.document-card h3,
+.report-card h3{
+  margin-bottom: 4px;
+  text-transform: none;
+}
+
+.document-card p,
+.report-card p{
+  margin: 0;
+}
+
+.document-card > span{
+  color: #002352;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #f1f6fb;
+  font-family: "RobotoBold", serif;
+}
+
+.report-card{
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.report-card strong{
+  color: #002352;
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.video-page{
+  min-height: 100vh;
+  background: #07172e;
+}
+
+.video-room{
+  min-height: 100vh;
+  padding: 22px;
+  color: #fff;
+  background: linear-gradient(135deg, #07172e, #0d3560 70%, #063B6F);
+}
+
+.video-topbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.video-topbar p,
+.video-topbar h1{
+  margin: 0;
+  color: #fff;
+  text-transform: none;
+}
+
+.video-topbar h1{
+  font-size: 28px;
+}
+
+.video-back,
+.video-topbar span{
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.12);
+}
+
+.video-stage{
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 16px;
+  min-height: calc(100vh - 148px);
+}
+
+.video-main-tile,
+.video-side article{
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px;
+  background: rgba(0,0,0,.28);
+}
+
+.video-main-tile video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-fallback{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  text-align: center;
+  background: #0b2342;
+}
+
+.video-fallback[hidden]{
+  display: none;
+}
+
+.video-fallback i{
+  font-size: 42px;
+  color: #00A4D6;
+}
+
+.video-name{
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,.46);
+}
+
+.video-side{
+  display: grid;
+  gap: 16px;
+}
+
+.video-side article{
+  min-height: 190px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.avatar-circle{
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #00A4D6;
+  font-family: "RobotoBold", serif;
+  font-size: 24px;
+}
+
+.video-controls{
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,.38);
+  backdrop-filter: blur(12px);
+}
+
+.video-controls button,
+.video-controls a{
+  color: #fff;
+  min-width: 98px;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,.14);
+  text-decoration: none;
+}
+
+.video-controls .is-off{
+  background: #8a1f2d;
+}
+
+.video-controls .end-call{
+  background: #c8283a;
+}
+
+.video-status{
+  position: fixed;
+  left: 22px;
+  bottom: 24px;
+  max-width: min(420px, calc(100% - 44px));
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(0,0,0,.38);
+  backdrop-filter: blur(12px);
+  font-size: 13px;
+}
+
+.receipt-page{
+  min-height: 100vh;
+  background: #eef4f8;
+}
+
+.receipt-shell{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background:
+    linear-gradient(rgba(247,249,253,.88), rgba(247,249,253,.88)),
+    url(../images/background/8.png) center/cover no-repeat;
+}
+
+.receipt-card{
+  width: min(760px, 100%);
+  padding: 28px;
+  border: 1px solid #dbe7f1;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(0, 35, 82, .12);
+}
+
+.receipt-header{
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5ebf4;
+}
+
+.receipt-header img{
+  width: 112px;
+  height: auto;
+}
+
+.receipt-header p,
+.receipt-success p{
+  margin: 0;
+  color: #65708a;
+}
+
+.receipt-header h1{
+  margin: 2px 0 0;
+  color: #002352;
+  font-size: 26px;
+  text-transform: none;
+}
+
+.receipt-header span{
+  color: #0b7a50;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #e9fbf3;
+  font-family: "RobotoBold", serif;
+}
+
+.receipt-success{
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin: 24px 0;
+  padding: 18px;
+  border-radius: 8px;
+  background: #e8fbff;
+}
+
+.receipt-success i{
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #00A4D6;
+}
+
+.receipt-success strong{
+  color: #002352;
+  font-size: 20px;
+}
+
+.receipt-details{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid #e5ebf4;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.receipt-details div{
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border-bottom: 1px solid #e5ebf4;
+}
+
+.receipt-details div:nth-child(odd){
+  border-right: 1px solid #e5ebf4;
+}
+
+.receipt-details span,
+.receipt-total span{
+  color: #65708a;
+  font-size: 13px;
+}
+
+.receipt-details strong,
+.receipt-total strong{
+  color: #002352;
+}
+
+.receipt-total{
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 22px 0;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f7f9fd;
+}
+
+.receipt-total strong{
+  font-size: 24px;
+}
+
+.receipt-actions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media print{
+  .receipt-actions{
+    display: none;
+  }
+
+  .receipt-shell{
+    padding: 0;
+    background: #fff;
+  }
+
+  .receipt-card{
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 900px){
+  .calendar-layout,
+  .payments-layout,
+  .document-grid,
+  .report-grid,
+  .video-stage{
+    grid-template-columns: 1fr;
+  }
+
+  .video-side{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px){
+  .platform-topbar h1{
+    font-size: 24px;
+  }
+
+  .calendar-weekdays,
+  .calendar-grid{
+    gap: 5px;
+  }
+
+  .calendar-day{
+    min-height: 48px;
+  }
+
+  .payment-row,
+  .event-item{
+    grid-template-columns: 1fr;
+  }
+
+  .video-controls{
+    width: calc(100% - 24px);
+    overflow-x: auto;
+  }
+}
+
+/* SIMEDI platform typography scale */
+.platform-page h1,
+.platform-page h2,
+.platform-page h3,
+.platform-page h4,
+.platform-page p,
+.platform-page span,
+.platform-page button,
+.platform-page a{
+  letter-spacing: 0;
+}
+
+.platform-topbar h1{
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.platform-kicker{
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.platform-hero-card h2,
+.section-heading h2,
+.assistant-header-card h2,
+.profile-card h2{
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.platform-hero-card p,
+.section-heading span,
+.platform-card p,
+.activity-list p,
+.procedure-card p,
+.course-card p,
+.event-item p,
+.payment-row p{
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.platform-card h3,
+.procedure-card h3,
+.course-card h3,
+.payment-row h3,
+.calendar-head h3{
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.session-time strong,
+.platform-stats strong,
+.payment-summary strong{
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.session-time span,
+.platform-stats span,
+.procedure-card span,
+.payment-row span,
+.calendar-weekdays,
+.chat-status,
+.assistant-live,
+.profile-details span,
+.profile-details strong{
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.platform-actions button,
+.quick-tile-app,
+.platform-card .btn,
+.payment-summary .btn,
+.video-controls button,
+.video-controls a{
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.quick-tile-app span{
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.mediator-role .quick-grid-app{
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  max-width: none;
+}
+
+.mediator-role .quick-tile-app{
+  min-height: 104px;
+}
+
+.section-heading{
+  align-items: center;
+}
+
+.section-heading h2{
+  background: transparent;
+}
+
+.platform-stats i{
+  font-size: 16px;
+}
+
+@media (max-width: 700px){
+  .platform-topbar h1,
+  .platform-hero-card h2,
+  .section-heading h2,
+  .assistant-header-card h2,
+  .profile-card h2{
+    font-size: 22px;
+  }
+
+  .platform-card h3,
+  .procedure-card h3,
+  .course-card h3,
+  .payment-row h3,
+  .calendar-head h3{
+    font-size: 17px;
+  }
+}
+
+/* SIMEDI payment form and calendar behavior */
+.event-item{
+  grid-template-columns: auto auto 1fr auto;
+}
+
+.event-item em{
+  color: #00A4D6;
+  font-style: normal;
+  font-family: "RobotoBold", serif;
+}
+
+.event-item.is-disabled{
+  opacity: .62;
+  cursor: not-allowed;
+}
+
+.event-item.is-disabled em{
+  color: #65708a;
+}
+
+.calendar-day{
+  text-decoration: none;
+}
+
+.calendar-day.is-today{
+  color: #fff;
+  border-color: #00A4D6;
+  background: #00A4D6;
+}
+
+.calendar-day:disabled{
+  color: #8d98aa;
+  cursor: not-allowed;
+}
+
+.pay-form-layout{
+  display: grid;
+  grid-template-columns: .85fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.pay-card-preview{
+  position: relative;
+  min-height: 260px;
+  overflow: hidden;
+  display: grid;
+  align-content: space-between;
+  gap: 22px;
+  padding: 24px;
+  border-radius: 14px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.24), transparent 28%),
+    linear-gradient(135deg, #002352, #0757d8 56%, #00A4D6);
+  box-shadow: 0 22px 50px rgba(0, 35, 82, .2);
+  animation: pay-card-float 3.8s ease-in-out infinite;
+}
+
+.pay-card-shine{
+  position: absolute;
+  inset: -40% auto auto -30%;
+  width: 70%;
+  height: 220%;
+  transform: rotate(24deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+  animation: pay-card-shine 3.8s ease-in-out infinite;
+}
+
+.pay-card-top,
+.pay-card-bottom{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.pay-card-chip{
+  position: relative;
+  width: 48px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.2);
+}
+
+.pay-card-preview strong{
+  position: relative;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.pay-form-card form{
+  display: grid;
+  gap: 12px;
+}
+
+.pay-form-card label{
+  color: #002352;
+  margin: 0;
+  font-family: "RobotoBold", serif;
+  font-size: 13px;
+}
+
+.pay-form-card input,
+.pay-form-card select{
+  margin: 0;
+}
+
+.pay-form-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pay-form-row > div{
+  display: grid;
+  gap: 12px;
+}
+
+.inline-status a{
+  color: #002352;
+  font-family: "RobotoBold", serif;
+  text-decoration: underline;
+}
+
+@keyframes pay-card-float{
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-8px); }
+}
+
+@keyframes pay-card-shine{
+  0%, 45%{ transform: translateX(-40%) rotate(24deg); opacity: 0; }
+  60%{ opacity: 1; }
+  100%{ transform: translateX(190%) rotate(24deg); opacity: 0; }
+}
+
+@media (max-width: 900px){
+  .pay-form-layout{
+    grid-template-columns: 1fr;
   }
 }

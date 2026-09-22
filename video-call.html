@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMEDI | Videollamada</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/plugin.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="icons/font-awesome.min.css">
+</head>
+<body class="video-page">
+  <main class="video-room">
+    <header class="video-topbar">
+      <a href="platform.html" class="video-back"><i class="fa fa-angle-left" aria-hidden="true"></i> Plataforma</a>
+      <div>
+        <p>SIMEDI sala segura</p>
+        <h1>Audiencia virtual</h1>
+      </div>
+      <span id="camera-state">Conectando camara</span>
+    </header>
+
+    <section class="video-stage">
+      <article class="video-main-tile">
+        <video id="local-video" autoplay playsinline muted></video>
+        <div class="video-fallback" id="video-fallback">
+          <i class="fa fa-video-camera" aria-hidden="true"></i>
+          <p>Permite el acceso a la camara para iniciar la simulacion.</p>
+        </div>
+        <span class="video-name">Tu camara</span>
+      </article>
+      <aside class="video-side">
+        <article>
+          <div class="avatar-circle">MC</div>
+          <strong>Mediador certificado</strong>
+          <span>En sala</span>
+        </article>
+        <article>
+          <div class="avatar-circle">CP</div>
+          <strong>Contraparte</strong>
+          <span>Esperando conexion</span>
+        </article>
+      </aside>
+    </section>
+
+    <section class="video-controls" aria-label="Controles de videollamada">
+      <button type="button" id="toggle-camera"><i class="fa fa-video-camera" aria-hidden="true"></i><span>Camara</span></button>
+      <button type="button" id="toggle-mic"><i class="fa fa-microphone" aria-hidden="true"></i><span>Microfono</span></button>
+      <button type="button" id="share-docs"><i class="fa fa-file-text-o" aria-hidden="true"></i><span>Documentos</span></button>
+      <a class="end-call" href="platform.html"><i class="fa fa-phone" aria-hidden="true"></i><span>Salir</span></a>
+    </section>
+    <div class="video-status" id="video-status">Sala segura lista.</div>
+  </main>
+
+  <script>
+    var stream;
+    var cameraOn = true;
+    var micOn = true;
+    var video = document.getElementById('local-video');
+    var statusLabel = document.getElementById('camera-state');
+    var fallback = document.getElementById('video-fallback');
+
+    async function startCamera() {
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+        video.srcObject = stream;
+        fallback.hidden = true;
+        statusLabel.textContent = 'Camara activa';
+      } catch (error) {
+        fallback.hidden = false;
+        statusLabel.textContent = 'Camara bloqueada';
+      }
+    }
+
+    document.getElementById('toggle-camera').addEventListener('click', function() {
+      if (!stream) return startCamera();
+      cameraOn = !cameraOn;
+      stream.getVideoTracks().forEach(function(track) { track.enabled = cameraOn; });
+      statusLabel.textContent = cameraOn ? 'Camara activa' : 'Camara pausada';
+      this.classList.toggle('is-off', !cameraOn);
+    });
+
+    document.getElementById('toggle-mic').addEventListener('click', function() {
+      if (!stream) return startCamera();
+      micOn = !micOn;
+      stream.getAudioTracks().forEach(function(track) { track.enabled = micOn; });
+      this.classList.toggle('is-off', !micOn);
+    });
+
+    document.getElementById('share-docs').addEventListener('click', function() {
+      document.getElementById('video-status').textContent = 'Panel de documentos compartidos abierto en modo simulacion.';
+    });
+
+    startCamera();
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMEDI | Comprobante de pago</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/plugin.css">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="icons/font-awesome.min.css">
+</head>
+<body class="receipt-page">
+  <main class="receipt-shell">
+    <section class="receipt-card">
+      <header class="receipt-header">
+        <img src="images/logo/sucursales.png" alt="SIMEDI">
+        <div>
+          <p>Comprobante digital</p>
+          <h1>Pago registrado</h1>
+        </div>
+        <span>Validado</span>
+      </header>
+
+      <div class="receipt-success">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <div>
+          <strong id="receipt-concept">Constancia digital</strong>
+          <p>Operacion simulada completada correctamente.</p>
+        </div>
+      </div>
+
+      <div class="receipt-details">
+        <div><span>Folio</span><strong>SIM-2024-00125</strong></div>
+        <div><span>Expediente</span><strong>EXP-2024-00125</strong></div>
+        <div><span>Fecha</span><strong>26 Jun 2024, 10:42 a.m.</strong></div>
+        <div><span>Metodo</span><strong>Tarjeta terminacion 0425</strong></div>
+        <div><span>Autorizacion</span><strong>AUT-839204</strong></div>
+        <div><span>Importe</span><strong id="receipt-amount">$120.00 MXN</strong></div>
+      </div>
+
+      <div class="receipt-total">
+        <span>Total pagado</span>
+        <strong id="receipt-total">$120.00 MXN</strong>
+      </div>
+
+      <footer class="receipt-actions">
+        <button class="btn" type="button" onclick="window.print()"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
+        <a class="btn btn2" href="platform.html"><i class="fa fa-angle-left" aria-hidden="true"></i> Volver</a>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    var params = new URLSearchParams(window.location.search);
+    var concept = params.get('concept') || 'Constancia digital';
+    var amount = params.get('amount') || '$120.00';
+    document.getElementById('receipt-concept').textContent = concept;
+    document.getElementById('receipt-amount').textContent = amount + ' MXN';
+    document.getElementById('receipt-total').textContent = amount + ' MXN';
+  </script>
+</body>
+</html>

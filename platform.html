@@ -15,11 +15,13 @@
 <div class="platform-drawer-overlay" id="platform-drawer-overlay"></div>
 <aside class="platform-sidebar">
   <button class="platform-drawer-close" id="platform-drawer-close" aria-label="Cerrar menu"><i class="fa fa-times" aria-hidden="true"></i></button>
-  <a href="index.html" class="simedi-logo"><img src="images/logo/logob.png" alt="SIMEDI"></a>
+  <a href="index.html" class="simedi-logo"><img src="images/logo/sucursales.png" alt="SIMEDI"></a>
   <nav class="platform-nav" aria-label="Navegacion de plataforma">
     <button class="active" data-view="home"><i class="fa fa-home" aria-hidden="true"></i> Inicio</button>
-    <button data-view="courses"><i class="fa fa-book" aria-hidden="true"></i> Cursos</button>
     <button data-view="procedures"><i class="fa fa-briefcase" aria-hidden="true"></i> Procedimientos</button>
+    <button data-view="calendar"><i class="fa fa-calendar" aria-hidden="true"></i> Calendario</button>
+    <button data-view="payments"><i class="fa fa-credit-card" aria-hidden="true"></i> Pagos</button>
+    <button data-view="courses" data-mediator-only="true"><i class="fa fa-book" aria-hidden="true"></i> Cursos</button>
     <button data-view="assistant"><i class="fa fa-comments-o" aria-hidden="true"></i> Asistente IA</button>
     <button data-view="profile"><i class="fa fa-user-o" aria-hidden="true"></i> Perfil</button>
   </nav>
@@ -38,7 +40,7 @@
 
   <section class="platform-view active" id="view-home">
     <div class="platform-mobile-brand">
-      <img src="images/logo/logob.png" alt="SIMEDI">
+      <img src="images/logo/sucursales.png" alt="SIMEDI">
     </div>
     <div class="platform-grid">
       <article class="platform-hero-card">
@@ -53,7 +55,7 @@
         <h3>Proxima sesion</h3>
         <div class="session-time"><span>Hoy</span><strong>10:00 a.m.</strong></div>
         <p id="session-copy">Videomediacion con mediador certificado. Ten a la mano identificacion y documentos anexos.</p>
-        <a class="btn w-100" href="#">Entrar a videollamada</a>
+        <a class="btn w-100" href="video-call.html">Entrar a videollamada</a>
       </article>
     </div>
 
@@ -87,6 +89,109 @@
       <span>Material de apoyo para entender el proceso de mediacion.</span>
     </div>
     <div class="course-grid" id="course-grid"></div>
+  </section>
+
+  <section class="platform-view" id="view-calendar">
+    <div class="section-heading">
+      <h2>Calendario</h2>
+      <span>Sesiones, vencimientos y recordatorios del expediente.</span>
+    </div>
+    <div class="calendar-layout">
+      <article class="platform-card calendar-card">
+        <div class="calendar-head">
+          <button type="button" data-calendar-nav="-1" aria-label="Mes anterior"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+          <h3 id="calendar-month">Julio 2024</h3>
+          <button type="button" data-calendar-nav="1" aria-label="Mes siguiente"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="calendar-weekdays">
+          <span>Lun</span><span>Mar</span><span>Mie</span><span>Jue</span><span>Vie</span><span>Sab</span><span>Dom</span>
+        </div>
+        <div class="calendar-grid" id="calendar-grid"></div>
+      </article>
+      <article class="platform-card">
+        <h3>Eventos proximos</h3>
+        <div class="event-list" id="event-list"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="platform-view" id="view-payments">
+    <div class="section-heading">
+      <h2>Pagos</h2>
+      <span>Consulta conceptos, estatus y comprobantes.</span>
+    </div>
+    <div class="payments-layout">
+      <article class="platform-card payment-summary">
+        <span>Total pendiente</span>
+        <strong id="payment-total">$0.00</strong>
+        <p>Los pagos mostrados son simulados para la demo de plataforma.</p>
+        <button class="btn" type="button" id="pay-now" data-view-target="payform"><i class="fa fa-credit-card" aria-hidden="true"></i> Pagar ahora</button>
+        <div class="inline-status" id="payment-status">Selecciona un pago o genera un comprobante.</div>
+      </article>
+      <div class="payment-list" id="payment-list"></div>
+    </div>
+  </section>
+
+  <section class="platform-view" id="view-payform">
+    <div class="section-heading">
+      <h2>Pago seguro</h2>
+      <span>Formulario simulado dentro de la plataforma.</span>
+    </div>
+    <div class="pay-form-layout">
+      <article class="pay-card-preview">
+        <div class="pay-card-shine"></div>
+        <div class="pay-card-top">
+          <span>SIMEDI Pay</span>
+          <i class="fa fa-wifi" aria-hidden="true"></i>
+        </div>
+        <div class="pay-card-chip"></div>
+        <strong id="pay-card-number">4242 4242 4242 4242</strong>
+        <div class="pay-card-bottom">
+          <span id="pay-card-name">ANA MARIA LOPEZ</span>
+          <span id="pay-card-exp">12/28</span>
+        </div>
+      </article>
+      <article class="platform-card pay-form-card">
+        <h3>Datos de pago</h3>
+        <form id="payment-form">
+          <label for="pay-name">Nombre en tarjeta</label>
+          <input id="pay-name" type="text" value="Ana Maria Lopez" autocomplete="cc-name">
+          <label for="pay-number">Numero de tarjeta</label>
+          <input id="pay-number" type="text" value="4242 4242 4242 4242" inputmode="numeric" autocomplete="cc-number">
+          <div class="pay-form-row">
+            <div>
+              <label for="pay-exp">Vencimiento</label>
+              <input id="pay-exp" type="text" value="12/28" autocomplete="cc-exp">
+            </div>
+            <div>
+              <label for="pay-cvv">CVV</label>
+              <input id="pay-cvv" type="password" value="123" autocomplete="cc-csc">
+            </div>
+          </div>
+          <label for="pay-concept">Concepto</label>
+          <select id="pay-concept"></select>
+          <button class="btn w-100" type="submit"><i class="fa fa-lock" aria-hidden="true"></i> Confirmar pago</button>
+        </form>
+        <div class="inline-status" id="pay-form-status">Pago protegido listo para confirmar.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="platform-view" id="view-documents">
+    <div class="section-heading">
+      <h2>Documentos</h2>
+      <span>Archivos del expediente, acuerdos y evidencias cargadas.</span>
+    </div>
+    <div class="inline-status mb-3" id="document-status">Selecciona un documento para descargarlo.</div>
+    <div class="document-grid" id="document-grid"></div>
+  </section>
+
+  <section class="platform-view" id="view-reports">
+    <div class="section-heading">
+      <h2>Reportes</h2>
+      <span>Indicadores de audiencias, expedientes y acuerdos.</span>
+    </div>
+    <div class="report-grid" id="report-grid"></div>
   </section>
 
   <section class="platform-view" id="view-procedures">
@@ -163,12 +268,32 @@
       stats: ['3', '5', '1', '2'],
       statLabels: ['Expedientes activos', 'Notificaciones', 'Firma pendiente', 'Convenios cerrados'],
       actions: [
-        ['file-text-o', 'Expediente', 'soft-blue', 'profile'],
+        ['file-text-o', 'Expediente', 'soft-blue', 'procedures'],
         ['users', 'Mis procedimientos', 'soft-purple', 'procedures'],
-        ['video-camera', 'Audiencia virtual', 'soft-green', 'procedures'],
-        ['credit-card', 'Pagos', 'soft-orange', 'profile'],
-        ['calendar', 'Calendario', 'soft-blue', 'profile'],
-        ['folder-open-o', 'Documentos', 'soft-cyan', 'profile']
+        ['video-camera', 'Audiencia virtual', 'soft-green', 'video'],
+        ['credit-card', 'Pagos', 'soft-orange', 'payments'],
+        ['calendar', 'Calendario', 'soft-blue', 'calendar'],
+        ['folder-open-o', 'Documentos', 'soft-cyan', 'documents']
+      ],
+      events: [
+        ['Hoy', '10:00 a.m.', 'Videomediacion familiar', 'video-call.html'],
+        ['25 Jun', '02:30 p.m.', 'Carga limite de documentos', 'platform.html?role=user'],
+        ['28 Jun', '11:00 a.m.', 'Revision de convenio preliminar', 'platform.html?role=user']
+      ],
+      payments: [
+        ['Derechos de solicitud', '$350.00', 'Pendiente'],
+        ['Constancia digital', '$120.00', 'Pagado'],
+        ['Notificacion certificada', '$80.00', 'Pendiente']
+      ],
+      documents: [
+        ['Identificacion oficial', 'PDF validado', 'Hoy'],
+        ['Comprobante de domicilio', 'Revision pendiente', 'Ayer'],
+        ['Convenio preliminar', 'Listo para firma', '22 Jun']
+      ],
+      reports: [
+        ['Avance del expediente', '72%', 'Etapa de convenio'],
+        ['Tiempo estimado', '4 dias', 'Para siguiente acuerdo'],
+        ['Participantes confirmados', '2', 'Solicitante y contraparte']
       ],
       profile: ['AM', 'Ana Maria Lopez', 'ana.maria@correo.com', 'USR-2024-0081'],
       details: [['CURP', 'Validada'], ['Telefono', 'Verificado'], ['Identidad', 'Biometria pendiente'], ['Rol', 'Ciudadano solicitante']],
@@ -202,11 +327,31 @@
       statLabels: ['Casos asignados', 'Revisiones pendientes', 'Sesiones de hoy', 'Acuerdos del mes'],
       actions: [
         ['briefcase', 'Casos asignados', 'soft-purple', 'procedures'],
-        ['video-camera', 'Audiencia virtual', 'soft-green', 'procedures'],
-        ['bar-chart', 'Reportes', 'soft-blue', 'profile'],
-        ['calendar', 'Agenda', 'soft-blue', 'profile'],
+        ['video-camera', 'Audiencia virtual', 'soft-green', 'video'],
+        ['bar-chart', 'Reportes', 'soft-blue', 'reports'],
+        ['calendar', 'Agenda', 'soft-blue', 'calendar'],
         ['book', 'Capacitacion', 'soft-cyan', 'courses'],
-        ['user-secret', 'Expediente', 'soft-orange', 'profile']
+        ['shield', 'Expediente', 'soft-orange', 'procedures']
+      ],
+      events: [
+        ['Hoy', '12:30 p.m.', 'Audiencia civil mercantil', 'video-call.html'],
+        ['Hoy', '04:00 p.m.', 'Revision de admisibilidad', 'platform.html?role=mediator'],
+        ['26 Jun', '09:30 a.m.', 'Sesion de seguimiento familiar', 'video-call.html']
+      ],
+      payments: [
+        ['Honorarios por audiencia', '$1,200.00', 'Programado'],
+        ['Validacion documental', '$450.00', 'Programado'],
+        ['Constancia mensual', '$0.00', 'Pagado']
+      ],
+      documents: [
+        ['Expediente familiar', '12 archivos', 'Actualizado hoy'],
+        ['Cedula de admisibilidad', 'Pendiente de firma', '15 min'],
+        ['Convenio preliminar', 'Borrador activo', 'Ayer']
+      ],
+      reports: [
+        ['Casos activos', '8', 'Asignados esta semana'],
+        ['Audiencias de hoy', '6', '2 finalizadas'],
+        ['Acuerdos del mes', '12', '4 pendientes de firma']
       ],
       profile: ['CM', 'Lic. Carlos Mendoza Reyes', 'carlos.mendoza@simedi.mx', 'MC-2023-000145'],
       details: [['Certificacion', 'Mediador vigente'], ['Materia', 'Familiar, civil y mercantil'], ['Centro', 'Centro de Justicia Alternativa'], ['Rol', 'Mediador certificado']],
@@ -341,6 +486,9 @@
     document.getElementById('quick-grid-app').innerHTML = current.actions.map(function(item) {
       return '<button class="quick-tile-app ' + item[2] + '" data-view-target="' + item[3] + '">' + icon(item[0]) + '<span>' + item[1] + '</span></button>';
     }).join('');
+    document.querySelectorAll('[data-mediator-only]').forEach(function(item) {
+      item.hidden = state.role !== 'mediator';
+    });
     bindViewTargetButtons();
     document.getElementById('courses-title').textContent = current.coursesTitle;
     document.getElementById('course-grid').innerHTML = current.courses.map(function(item) {
@@ -349,8 +497,14 @@
     document.getElementById('procedures-title').textContent = current.proceduresTitle;
     document.getElementById('procedures-subtitle').textContent = current.proceduresSubtitle;
     document.getElementById('procedure-list').innerHTML = current.procedures.map(function(item) {
-      return '<article class="platform-card procedure-card"><div><h3>' + item[0] + '</h3><p>' + item[1] + ' | ' + item[3] + '</p></div><span>' + item[2] + '</span><button class="btn">Abrir</button></article>';
+      return '<article class="platform-card procedure-card"><div><h3>' + item[0] + '</h3><p>' + item[1] + ' | ' + item[3] + '</p></div><span>' + item[2] + '</span><a class="btn" href="dummy-documento.pdf" download="' + item[1].toLowerCase() + '.pdf">Descargar</a></article>';
     }).join('');
+    renderCalendar(current);
+    renderPayments(current);
+    renderPayForm(current);
+    renderDocuments(current);
+    renderReports(current);
+    bindViewTargetButtons();
     document.getElementById('profile-initials').textContent = current.profile[0];
     document.getElementById('profile-name').textContent = current.profile[1];
     document.getElementById('profile-email').textContent = current.profile[2];
@@ -362,15 +516,68 @@
       ? 'Consulta pendientes, plazos, pagos, sesiones y acciones del expediente asignado.'
       : 'Orientacion por chat para audiencia, documentos, pagos o seguimiento de expediente.';
     document.getElementById('role-badge').textContent = state.role === 'mediator' ? 'Mediador' : 'Ciudadano';
+    document.body.classList.toggle('mediator-role', state.role === 'mediator');
+  }
+
+  function renderCalendar(current) {
+    document.getElementById('event-list').innerHTML = current.events.map(function(item) {
+      if (item[0] === 'Hoy') {
+        return '<a class="event-item is-available" href="video-call.html"><strong>' + item[0] + '</strong><span>' + item[1] + '</span><p>' + item[2] + '</p><em>Entrar</em></a>';
+      }
+      return '<div class="event-item is-disabled" aria-disabled="true"><strong>' + item[0] + '</strong><span>' + item[1] + '</span><p>' + item[2] + '</p><em>No disponible</em></div>';
+    }).join('');
+    document.getElementById('calendar-grid').innerHTML = Array.from({ length: 35 }, function(_, index) {
+      var day = index + 1;
+      var marked = [3, 10, 18, 25, 28].indexOf(day) >= 0 ? ' has-event' : '';
+      var today = day === 3 ? ' is-today' : '';
+      return day === 3
+        ? '<a class="calendar-day' + marked + today + '" href="video-call.html"><span>' + day + '</span></a>'
+        : '<button type="button" class="calendar-day' + marked + today + '" disabled><span>' + day + '</span></button>';
+    }).join('');
+  }
+
+  function renderPayments(current) {
+    var pending = current.payments.reduce(function(total, item) {
+      if (item[2] === 'Pagado') return total;
+      return total + Number(item[1].replace(/[$,]/g, ''));
+    }, 0);
+    document.getElementById('payment-total').textContent = '$' + pending.toLocaleString('es-MX', { minimumFractionDigits: 2 });
+    document.getElementById('payment-list').innerHTML = current.payments.map(function(item) {
+      return '<article class="platform-card payment-row"><div><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div><span>' + item[2] + '</span><a class="btn" href="comprobante.html?concept=' + encodeURIComponent(item[0]) + '&amount=' + encodeURIComponent(item[1]) + '">Comprobante</a></article>';
+    }).join('');
+  }
+
+  function renderPayForm(current) {
+    document.getElementById('pay-concept').innerHTML = current.payments.map(function(item) {
+      return '<option value="' + item[0] + '" data-amount="' + item[1] + '">' + item[0] + ' - ' + item[1] + '</option>';
+    }).join('');
+  }
+
+  function renderDocuments(current) {
+    document.getElementById('document-grid').innerHTML = current.documents.map(function(item) {
+      return '<article class="platform-card document-card">' + icon('file-text-o') + '<div><h3>' + item[0] + '</h3><p>' + item[1] + '</p></div><span>' + item[2] + '</span><a class="btn" href="dummy-documento.pdf" download="' + item[0].replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '.pdf">Descargar</a></article>';
+    }).join('');
+  }
+
+  function renderReports(current) {
+    document.getElementById('report-grid').innerHTML = current.reports.map(function(item) {
+      return '<article class="platform-card report-card">' + icon('bar-chart') + '<strong>' + item[1] + '</strong><h3>' + item[0] + '</h3><p>' + item[2] + '</p></article>';
+    }).join('');
+  }
+
+  function openPlatformView(viewName) {
+    document.querySelectorAll('.platform-nav button').forEach(function(item) { item.classList.remove('active'); });
+    document.querySelectorAll('.platform-view').forEach(function(view) { view.classList.remove('active'); });
+    var navButton = document.querySelector('.platform-nav button[data-view="' + viewName + '"]');
+    if (navButton) navButton.classList.add('active');
+    var targetView = document.getElementById('view-' + viewName);
+    if (targetView) targetView.classList.add('active');
+    closePlatformDrawer();
   }
 
   document.querySelectorAll('.platform-nav button').forEach(function(button) {
     button.addEventListener('click', function() {
-      document.querySelectorAll('.platform-nav button').forEach(function(item) { item.classList.remove('active'); });
-      document.querySelectorAll('.platform-view').forEach(function(view) { view.classList.remove('active'); });
-      button.classList.add('active');
-      document.getElementById('view-' + button.dataset.view).classList.add('active');
-      closePlatformDrawer();
+      openPlatformView(button.dataset.view);
     });
   });
 
@@ -379,7 +586,11 @@
       if (button.dataset.bound === 'true') return;
       button.dataset.bound = 'true';
       button.addEventListener('click', function() {
-        document.querySelector('.platform-nav button[data-view="' + button.dataset.viewTarget + '"]').click();
+        if (button.dataset.viewTarget === 'video') {
+          window.location.href = 'video-call.html';
+          return;
+        }
+        openPlatformView(button.dataset.viewTarget);
       });
     });
   }
@@ -412,6 +623,37 @@
     button.addEventListener('click', function() {
       sendChatMessage(button.dataset.chatPrompt);
     });
+  });
+
+  document.querySelectorAll('[data-calendar-nav]').forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.getElementById('calendar-month').textContent = button.dataset.calendarNav === '1' ? 'Agosto 2024' : 'Junio 2024';
+    });
+  });
+
+  document.getElementById('pay-name').addEventListener('input', function(event) {
+    document.getElementById('pay-card-name').textContent = event.target.value.toUpperCase() || 'NOMBRE EN TARJETA';
+  });
+
+  document.getElementById('pay-number').addEventListener('input', function(event) {
+    document.getElementById('pay-card-number').textContent = event.target.value || '0000 0000 0000 0000';
+  });
+
+  document.getElementById('pay-exp').addEventListener('input', function(event) {
+    document.getElementById('pay-card-exp').textContent = event.target.value || 'MM/AA';
+  });
+
+  document.getElementById('payment-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var status = document.getElementById('pay-form-status');
+      status.textContent = 'Validando tarjeta y autorizando pago...';
+      status.classList.add('is-active');
+      window.setTimeout(function() {
+      var conceptSelect = document.getElementById('pay-concept');
+      var concept = conceptSelect.value;
+      var amount = conceptSelect.options[conceptSelect.selectedIndex].dataset.amount;
+      status.innerHTML = 'Pago aprobado. <a href="comprobante.html?concept=' + encodeURIComponent(concept) + '&amount=' + encodeURIComponent(amount) + '">Ver comprobante</a>';
+    }, 800);
   });
 </script>
 </body>
